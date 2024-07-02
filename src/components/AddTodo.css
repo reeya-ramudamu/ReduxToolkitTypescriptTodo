@@ -31,3 +31,45 @@
 .submit-button:hover {
     background-color: #4c51bf;
 }
+
+
+.message {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .message-success {
+    color: green;
+  }
+  
+  .message-error {
+    color: red;
+  }
+  
+  .shake-animation {
+    animation: shake 0.5s;
+  }
+  .message-appear {
+    opacity: 1;
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
