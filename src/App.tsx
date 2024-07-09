@@ -9,12 +9,12 @@ const App: React.FC = () => {
     <>
       <div className="card">
         <Routes>
-          <Route path="/add" element={<AddTodo />} />
-          <Route path="/edit/:id" element={<EditTodo />} />
+          <Route path="/todo" element={<AddTodo />} />
+          <Route path="/todo/:id" element={<EditTodo />} />
           <Route path="/" element={<Todos />} />
         </Routes>
         <div className="add">
-          <Link to="/add">+</Link>
+          <Link to="/todo">+</Link>
         </div>
       </div>
     </>
