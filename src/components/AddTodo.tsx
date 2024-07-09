@@ -55,7 +55,9 @@ const AddTodo: React.FC = () => {
               />
               <div>
                 {errors.exampleRequired && (
-                  <p>{errors.exampleRequired.message}</p>
+                  <p className="message message-error">
+                    {errors.exampleRequired.message}
+                  </p>
                 )}
                 {showMessage && (
                   <p className="message message-success">Todo added to list</p>
