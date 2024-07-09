@@ -1,14 +1,6 @@
 
 import {createSlice,PayloadAction, nanoid} from '@reduxjs/toolkit';
-
-interface Todo{
-    id:string;
-    text:string;
-}
-
-export interface TodoState{
-    todos:Todo[];
-}
+import { Todo, TodoState } from '../../types/data';
 
 const initialState : TodoState={
     todos: [{ id: nanoid(), text: 'Example Todo' }]
