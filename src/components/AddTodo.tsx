@@ -12,8 +12,7 @@ const AddTodo: React.FC = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const [input, setInput] = useState("");
-  const [message, setMessage] = useState("");
-  const [messageColor, setMessageColor] = useState("");
+
   const [showMessage, setShowMessage] = useState(false);
 
   const dispatch = useDispatch();
@@ -22,12 +21,9 @@ const AddTodo: React.FC = () => {
     if (data.exampleRequired.trim() !== "") {
       dispatch(addTodo(data.exampleRequired));
       setInput("");
-      setMessage("Todo added to list");
-      setMessageColor("message-success");
-      setShowMessage(true);
+      if (!errors.exampleRequired) setShowMessage(true);
 
       setTimeout(() => {
-        setMessage("");
         setShowMessage(false);
       }, 2000);
     }
@@ -55,20 +51,15 @@ const AddTodo: React.FC = () => {
                 value={input}
                 onChange={(e) => {
                   setInput(e.target.value);
-                  setMessage("");
                 }}
               />
               <div>
                 {errors.exampleRequired && (
                   <p>{errors.exampleRequired.message}</p>
                 )}
-                <p
-                  className={`message ${messageColor} ${
-                    showMessage ? "message-appear" : ""
-                  }`}
-                >
-                  {message}
-                </p>
+                {showMessage && (
+                  <p className="message message-success">Todo added to list</p>
+                )}
               </div>
             </div>
             <div>

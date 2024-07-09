@@ -11,7 +11,7 @@ export interface TodoState{
     todos:Todo[];
 }
 export interface RootState{
-    todos:TodoState;
+    todosReducer:TodoState;
 }
 
 type EditedInput = {

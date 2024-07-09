@@ -13,7 +13,7 @@ const EditTodo = () => {
     formState: { errors },
   } = useForm<EditedInput>();
   const { id } = useParams();
-  const todos = useSelector((state: RootState) => state.todos.todos);
+  const todos = useSelector((state: RootState) => state.todosReducer.todos);
   const todo = todos.find((todo) => todo.id === id);
   const [editedText, setEditedText] = useState(todo ? todo.text : "");
   const dispatch = useDispatch();
@@ -27,12 +27,12 @@ const EditTodo = () => {
           newText: data.neweditedtext,
         })
       );
-      navigate("/"); // Redirect back to Todos page after saving
+      navigate("/");
     }
   };
 
   const handleCancel = () => {
-    navigate("/"); // Redirect back to Todos page without saving
+    navigate("/");
   };
 
   if (!todo) {

@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeTodo } from "../features/todo/todoSlice";
-import { RootState } from "../app/store";
+import { RootState } from "../types/data";
 
 const Todos = () => {
-  const todos = useSelector((state: RootState) => state.todos.todos);
+  const todos = useSelector((state: RootState) => state.todosReducer.todos);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleEdit = (id: string) => {
-    navigate(`/edit/${id}`);
+    navigate(`/todo/${id}`);
   };
   const handleRemove = (id: string) => {
     dispatch(removeTodo(id));
